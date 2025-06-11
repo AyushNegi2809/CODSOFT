@@ -1,0 +1,127 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.calculator {
+    background: #2c3e50;
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    max-width: 320px;
+    width: 100%;
+}
+
+.display {
+    background: #1a252f;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: right;
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    border: 2px solid #34495e;
+}
+
+.display-text {
+    color: #ecf0f1;
+    font-size: 2.5rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.btn {
+    height: 65px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.btn-number {
+    background: #ecf0f1;
+    color: #2c3e50;
+}
+
+.btn-number:hover {
+    background: #d5dbdb;
+}
+
+.btn-operator {
+    background: #e74c3c;
+    color: white;
+}
+
+.btn-operator:hover {
+    background: #c0392b;
+}
+
+.btn-clear {
+    background: #f39c12;
+    color: white;
+}
+
+.btn-clear:hover {
+    background: #d68910;
+}
+
+.btn-equals {
+    background: #27ae60;
+    color: white;
+}
+
+.btn-equals:hover {
+    background: #229954;
+}
+
+.btn-zero {
+    grid-column: span 2;
+}
+
+@media (max-width: 380px) {
+    .calculator {
+        padding: 20px;
+        margin: 10px;
+    }
+
+    .btn {
+        height: 55px;
+        font-size: 1.2rem;
+    }
+
+    .display-text {
+        font-size: 2rem;
+    }
+}
