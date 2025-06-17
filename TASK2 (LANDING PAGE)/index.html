@@ -1,12 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Luxe Digital - Premium Digital Marketing</title>
+    <meta name="description" content="Premium Digital Marketing Agency" />
+    <meta name="author" content="Luxe Digital" />
+
+    <meta property="og:title" content="Luxe Digital - Premium Digital Marketing" />
+    <meta property="og:description" content="Premium Digital Marketing Agency" />
+    <meta property="og:type" content="website" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    
     <link rel="stylesheet" href="style.css">
+    
+    <!-- GSAP CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
 </head>
+
 <body>
+
+    <div class="circle"></div>
     <header>
         <nav id="nav">
             <div class="logo">LUXE DIGITAL</div>
@@ -37,37 +54,39 @@
     </section>
 
     <section class="services" id="services">
-        <h2 class="section-title">Our <span class="highlight">Premium Services</span></h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="service-icon">🎯</div>
-                <h3>Strategic Branding</h3>
-                <p>We create compelling brand identities that resonate with your target audience and establish market dominance through strategic positioning.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">📱</div>
-                <h3>Social Media Mastery</h3>
-                <p>Transform your social presence with engaging content, community management, and data-driven campaigns that drive real engagement.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">🚀</div>
-                <h3>Performance Marketing</h3>
-                <p>Maximize ROI with precision-targeted campaigns across Google, Facebook, and emerging platforms using advanced analytics and optimization.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">💎</div>
-                <h3>Luxury Web Design</h3>
-                <p>Craft stunning, conversion-optimized websites that embody your brand's essence and provide seamless user experiences across all devices.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">📊</div>
-                <h3>Data Analytics</h3>
-                <p>Unlock actionable insights with comprehensive analytics, conversion tracking, and performance reporting that guide strategic decisions.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">⚡</div>
-                <h3>Growth Hacking</h3>
-                <p>Accelerate your growth with innovative strategies, automation, and optimization techniques that scale your business exponentially.</p>
+        <div class="services-container">
+            <h2 class="section-title">Our <span class="highlight">Premium Services</span></h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🎯</div>
+                    <h3>Strategic Branding</h3>
+                    <p>We create compelling brand identities that resonate with your target audience and establish market dominance through strategic positioning.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📱</div>
+                    <h3>Social Media Mastery</h3>
+                    <p>Transform your social presence with engaging content, community management, and data-driven campaigns that drive real engagement.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🚀</div>
+                    <h3>Performance Marketing</h3>
+                    <p>Maximize ROI with precision-targeted campaigns across Google, Facebook, and emerging platforms using advanced analytics and optimization.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💎</div>
+                    <h3>Luxury Web Design</h3>
+                    <p>Craft stunning, conversion-optimized websites that embody your brand's essence and provide seamless user experiences across all devices.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📊</div>
+                    <h3>Data Analytics</h3>
+                    <p>Unlock actionable insights with comprehensive analytics, conversion tracking, and performance reporting that guide strategic decisions.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">⚡</div>
+                    <h3>Growth Hacking</h3>
+                    <p>Accelerate your growth with innovative strategies, automation, and optimization techniques that scale your business exponentially.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -76,19 +95,19 @@
         <h2 class="section-title">Proven <span class="highlight">Results</span></h2>
         <div class="stats-grid">
             <div class="stat-item">
-                <div class="stat-number">500+</div>
+                <div class="stat-number" data-target="500">0+</div>
                 <div class="stat-label">Brands Transformed</div>
             </div>
             <div class="stat-item">
-                <div class="stat-number">$50M+</div>
+                <div class="stat-number" data-target="50">$0M+</div>
                 <div class="stat-label">Revenue Generated</div>
             </div>
             <div class="stat-item">
-                <div class="stat-number">300%</div>
+                <div class="stat-number" data-target="300">0%</div>
                 <div class="stat-label">Average ROI Increase</div>
             </div>
             <div class="stat-item">
-                <div class="stat-number">98%</div>
+                <div class="stat-number" data-target="98">0%</div>
                 <div class="stat-label">Client Satisfaction</div>
             </div>
         </div>
