@@ -46,16 +46,10 @@ A basic functional calculator built with HTML, CSS, and JavaScript.
 
 ---
 
-## 📷 Screenshots
-
-*(You can add screenshots inside each task folder and display them here using markdown image syntax.)*
-
----
-
 ## 🙋‍♂️ Author
 
 **Ayush Negi**  
-📧 ayush@example.com *(optional)*  
+📧 ayushnegi912@gmail.com <br>
 🔗 [GitHub Profile](https://github.com/AyushNegi2809)
 
 ---
