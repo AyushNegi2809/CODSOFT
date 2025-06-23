@@ -4,26 +4,65 @@
 }
 
 body {
-    font-family: 'Inter', 'Segoe UI', 'Roboto', 'Arial', sans-serif;
-    background: #181a20;
+    
+    font-family: 'Itim', sans-serif;
     color: #f3f4f6;
     margin: 0;
     min-height: 100vh;
     letter-spacing: 0.01em;
     font-size: 1.08rem;
     line-height: 1.7;
-    overflow-x: hidden; /* Prevent horizontal scroll */
+    overflow-x: hidden;
+    background-color: #181a20;
+    background-image: url('body-background-image.png');
+    background-repeat: repeat;
+    background-size: auto;
 }
 
 html {
     scroll-behavior: smooth;
-    overflow-x: hidden; /* Prevent horizontal scroll */
+    overflow-x: hidden;
+    /* Prevent horizontal scroll */
 }
 
 .layout {
     display: flex;
     min-height: 100vh;
-    flex-direction: row; /* Default for desktop */
+    flex-direction: row;
+    /* Default for desktop */
+}
+
+.sidebar-arrow {
+    position: sticky;
+    top: 90%;
+    left: 45%;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    animation: bounce 1.5s ease-in-out infinite alternate;
+}
+
+.sidebar-arrow img {
+    width: 50px;
+    height: 50px;
+    transition: transform 0.3s ease;
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(10px) scale(1.1);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
 }
 
 .sidebar {
@@ -43,13 +82,16 @@ html {
     scrollbar-width: none;
     border-radius: 0;
     border: none;
-    background-image: none;
-    background-origin: initial;
-    background-clip: initial;
-    background-size: initial;
-    background-position: initial;
-    animation: none;
-    box-shadow: inset 2px 2px 24px rgba(95, 95, 95, 0.301);
+    /** Glassmorphism */
+    background: rgba(171, 172, 180, 0.048);
+    /* semi-transparent glass layer */
+    border-radius: 14px;
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    /* for Safari support */
+    border: 1px solid rgba(255, 255, 255, 0.027);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    /* soft shadow */
 }
 
 /* Hide scrollbar for WebKit browsers (Chrome, Safari, Edge) */
@@ -74,7 +116,6 @@ html {
     border-radius: 50%;
     box-shadow: 0 2px 16px #0008;
     margin-bottom: 16px;
-    transition: transform 0.4s cubic-bezier(.23,1.01,.32,1);
     object-fit: cover;
     object-position: center;
     opacity: 1;
@@ -86,13 +127,19 @@ html {
 }
 
 #name {
-    font-size: 2.5rem;
+    font-size: 30px;
     font-weight: 800;
     margin: 0;
     text-align: center;
     letter-spacing: 0.02em;
     line-height: 1.1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: #f1d5aa;
 }
+
+
 .role {
     color: #96c5ff;
     font-size: 1.15rem;
@@ -109,13 +156,14 @@ html {
 }
 
 .sidebar-nav {
-    display: flex;
+    display: inline-flex;
     flex-direction: column;
     gap: 24px;
     margin-top: 32px;
     width: 100%;
     align-items: center;
 }
+
 .sidebar-nav a {
     color: #cbd5e1;
     text-decoration: none;
@@ -123,21 +171,25 @@ html {
     font-weight: 500;
     padding: 10px 22px;
     border-radius: 8px;
-    transition: background 0.2s, color 0.2s;
     width: 80%;
     text-align: center;
     letter-spacing: 0.01em;
 }
-.sidebar-nav a:hover, .sidebar-nav a.active {
-    background: #23272f;
+
+.sidebar-nav a:hover,
+.sidebar-nav a.active {
+    background: transparent;
+    backdrop-filter: blur(5px);
     color: #60a5fa;
 }
+
 .socials {
     display: flex;
     gap: 18px;
     margin-bottom: 18px;
     justify-content: center;
 }
+
 .socials a {
     color: #f3f4f6;
     font-size: 1.7rem;
@@ -145,20 +197,26 @@ html {
     display: flex;
     align-items: center;
 }
+
 .socials a:hover {
     color: #60a5fa;
     transform: scale(1.15);
 }
+
 .socials img {
     width: 28px;
     height: 28px;
     filter: grayscale(0.2) brightness(0.95);
     transition: filter 0.2s, transform 0.2s;
 }
+
 .socials a:hover img {
     filter: none;
     transform: scale(1.15);
 }
+
+/** Main Panel Styles */
+
 .main-panel {
     flex: 1;
     padding: 56px 48px 56px 48px;
@@ -167,11 +225,16 @@ html {
     gap: 36px;
     max-width: 1200px;
     margin: 0 auto;
-    margin-left: 320px; /* Compensate for sidebar width */
-    overflow-x: hidden; /* Prevent horizontal scroll */
-    width: 100%; /* Ensure it takes full width */
-    box-sizing: border-box; /* Include padding in width calculation */
+    margin-left: 320px;
+    /* Compensate for sidebar width */
+    overflow-x: hidden;
+    /* Prevent horizontal scroll */
+    width: 100%;
+    /* Ensure it takes full width */
+    box-sizing: border-box;
+    /* Include padding in width calculation */
 }
+
 .main-panel section {
     background-color: var(--section-bg-color);
     border-radius: 14px;
@@ -182,30 +245,27 @@ html {
     letter-spacing: 0.01em;
     box-shadow: none;
     border: 3px solid transparent;
-    background-image:
-        linear-gradient(to bottom right, var(--section-bg-color), var(--section-bg-color)),
-        linear-gradient(135deg, #ffd978, #fd8b20 40%, #ffd978 60%, #fd8b20);
-    background-origin: border-box;
-    background-clip: padding-box, border-box;
     background-size: 300% 300%;
     background-position: 0% 0%;
-    animation:
-        fadeInUp 1.2s cubic-bezier(.23,1.01,.32,1) 0.2s both,
-        goldenBorderMovement 8s ease-in-out infinite alternate;
     transition: box-shadow 0.3s ease-in-out;
+    /** Glassmorphism */
+    background: rgba(171, 172, 180, 0.048);
+    /* semi-transparent glass layer */
+    border-radius: 14px;
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    /* for Safari support */
+    border: 1px solid rgba(255, 255, 255, 0.027);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    /* soft shadow */
 }
 
-@keyframes goldenBorderMovement {
-    0% { background-position: 0% 0%; }
-    50% { background-position: 100% 100%; }
-    100% { background-position: 0% 0%; }
+#about-para span {
+    display: inline;
+    white-space: pre-wrap;
 }
 
-.main-panel section:hover {
-    box-shadow: 0 0 10px rgba(255, 218, 5, 0.616), inset 0 0 15px rgba(255, 215, 0, 0.2);
-}
-
-.main-panel section h2 { 
+.main-panel section h2 {
     background: linear-gradient(90deg, #40d5f0, #ca006f 90%, #1b4d64);
     -webkit-background-clip: text;
     background-clip: text;
@@ -214,28 +274,25 @@ html {
     font-weight: 700;
     letter-spacing: 0.01em;
     line-height: 1.2;
-    font-family: inherit;
+    font-size: 2.5rem;
+    margin-bottom: 18px;
+    font-family: 'Itim', sans-serif;
 }
 
 .main-panel section h4 {
     text-align: center;
     color: #fd8b20;
-}
-
-.main-panel section h2 {
-    font-size: 2.5rem;
-    margin-bottom: 18px;
-}
-
-.main-panel section h4 {
     font-size: 1.5rem;
     margin-bottom: 10px;
+    font-family: 'Itim', sans-serif;
 }
 
 .main-panel section p[style*="color: grey"] {
     text-align: center;
     margin-bottom: 20px;
+    font-family: 'Itim', sans-serif;
 }
+
 .main-panel section ul {
     color: #cbd5e1;
     margin: 0 0 0 18px;
@@ -243,20 +300,43 @@ html {
     font-size: 1.08rem;
     line-height: 1.7;
     letter-spacing: 0.01em;
+    font-family: 'Itim', sans-serif;
 }
+
 .main-panel section li {
     margin-bottom: 8px;
     font-size: 1.08rem;
     line-height: 1.7;
     letter-spacing: 0.01em;
+    font-family: 'Itim', sans-serif;
 }
+
 .main-panel section p {
     color: #cbd5e1;
     margin: 0 0 8px 0;
     font-size: 1.13rem;
     line-height: 1.8;
     letter-spacing: 0.01em;
+    font-family: 'Itim', sans-serif;
 }
+
+.hackathon-title {
+    font-size: 2px;
+    font-weight: 800;
+    margin: 0;
+    text-align: left;
+    letter-spacing: 0.02em;
+    line-height: 1.1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Itim', sans-serif;
+}
+
+
 .certificate-placeholder {
     margin-top: 18px;
     width: 100%;
@@ -270,6 +350,10 @@ html {
     font-size: 1.15rem;
     font-style: italic;
     letter-spacing: 0.01em;
+    transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+    perspective: 1000px;
+    will-change: transform;
+    cursor: pointer;
 }
 
 .certificate-placeholder img {
@@ -287,24 +371,18 @@ html {
     justify-content: center;
     align-items: center;
 }
+
 .tools img {
     width: 50px;
     height: 50px;
-    filter: grayscale(0.2) brightness(0.95);
-    transition: filter 0.5s, transform 0.5s;
-    animation: scale 2.4s ease-in-out infinite;
-}
-.tools img:hover {
-    filter: none;
-    transform: scale(1.18) rotate(-6deg);
-    animation: none;
 }
 
 /* Resume Section Styles (Added back) */
 .resume-section .resume-container {
     margin-top: 20px;
     padding: 20px;
-    background: #1e2127;
+    background: transparent;
+    backdrop-filter: blur(10px);
     border-radius: 8px;
     text-align: center;
     display: flex;
@@ -340,7 +418,8 @@ html {
 .contact-section .contact-info {
     margin-top: 20px;
     padding: 20px;
-    background: #1e2127;
+    background: transparent;
+    backdrop-filter: blur(10px);
     border-radius: 8px;
 }
 
@@ -375,6 +454,30 @@ html {
     text-decoration: underline;
 }
 
+/* Socials in Contact Section */
+.contact-section .socials {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    margin-top: 24px;
+    margin-bottom: 10px;
+}
+
+.contact-section .socials img {
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    transition: transform 0.2s;
+    background: none;
+    object-fit: contain;
+    box-shadow: none; /* Remove any shadow */
+}
+
+.contact-section .socials img:hover {
+    transform: scale(1.12) rotate(-6deg);
+    box-shadow: none; /* Ensure no shadow on hover */
+}
+
 /* Special styling for Tools and Education section headings */
 .tools-section h2,
 .education h2 {
@@ -389,33 +492,27 @@ html {
 @keyframes scale {
     0% {
         transform: scale(1);
-    } 50% {
+    }
+
+    50% {
         transform: scale(0.8);
-    } 100% {
+    }
+
+    100% {
         transform: scale(1);
     }
 }
 
-footer {
-    text-align: center;
-    padding: 18px 0 10px 0;
-    color: #64748b;
-    border-top: 1px solid #23272f;
-    font-size: 1.08rem;
-    letter-spacing: 0.03em;
-    background: none;
-    box-shadow: none;
-    margin-top: 24px;
-    font-weight: 500;
-}
 .spacer {
     flex: 1 1 auto;
 }
+
 @media (max-width: 1100px) {
     .main-panel {
         padding: 36px 8vw 24px 8vw;
     }
 }
+
 @media (max-width: 900px) {
     .sidebar {
         width: 180px;
@@ -425,18 +522,24 @@ footer {
         justify-content: flex-start;
         border-radius: 0;
     }
+
     .main-panel {
         padding: 24px 20px 16px 20px;
-        margin-left: 180px; /* Match the sidebar width */
-        width: calc(100% - 180px); /* Account for sidebar */
+        margin-left: 180px;
+        /* Match the sidebar width */
+        width: calc(100% - 180px);
+        /* Account for sidebar */
     }
+
     .main-panel section {
         padding: 36px 16px;
         font-size: 1.05rem;
     }
+
     .main-panel section h2 {
         font-size: 2rem;
     }
+
     /* Adjust Tools and Education headings for tablet */
     .tools-section h2,
     .education h2 {
@@ -444,18 +547,20 @@ footer {
         padding: 0 10px 20px 10px;
         word-wrap: break-word;
     }
-    
+
     /* Adjust certificate placeholder for tablet */
     .certificate-placeholder {
-        height: 400px; /* Reduced height for better fit */
+        height: 400px;
+        /* Reduced height for better fit */
         margin: 20px 0;
         padding: 0;
     }
-    
+
     .certificate-placeholder img {
         width: 100%;
         height: 100%;
-        object-fit: contain; /* This will ensure the entire image is visible */
+        object-fit: contain;
+        /* This will ensure the entire image is visible */
         border-radius: 20px;
         padding: 10px;
     }
@@ -464,78 +569,113 @@ footer {
 /* --- Mobile-specific styles for screens up to 700px wide --- */
 @media (max-width: 700px) {
     .layout {
-        flex-direction: column; /* Stack sidebar and main panel vertically */
+        flex-direction: column;
+        /* Stack sidebar and main panel vertically */
     }
 
     .sidebar {
-        width: 100%; /* Full width */
-        min-width: unset; /* Remove min-width constraint */
-        max-width: 100%; /* Full width */
-        position: static; /* No longer fixed, flows with content */
-        height: auto; /* Height adjusts to content */
-        padding-bottom: 10px; /* Add some padding at the bottom for better spacing */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
-        border-radius: 0 0 18px 18px; /* Rounded bottom corners */
+        width: 100%;
+        /* Full width */
+        min-width: unset;
+        /* Remove min-width constraint */
+        max-width: 100%;
+        /* Full width */
+        position: static;
+        /* No longer fixed, flows with content */
+        height: auto;
+        /* Height adjusts to content */
+        padding-bottom: 10px;
+        /* Add some padding at the bottom for better spacing */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        /* Add a subtle shadow */
+        border-radius: 0 0 18px 18px;
+        /* Rounded bottom corners */
     }
 
     .sidebar-content {
-        flex-direction: column; /* Stack content vertically within sidebar */
-        padding: 20px 0 10px 0; /* Adjust padding */
-        gap: 15px; /* Adjust gap */
+        flex-direction: column;
+        /* Stack content vertically within sidebar */
+        padding: 20px 0 10px 0;
+        /* Adjust padding */
+        gap: 15px;
+        /* Adjust gap */
     }
 
     .profile-pic {
-        width: 80px; /* Make profile picture slightly larger for better visibility */
+        width: 80px;
+        /* Make profile picture slightly larger for better visibility */
         height: 80px;
-        margin-bottom: 10px; /* Add some space below it */
+        margin-bottom: 10px;
+        /* Add some space below it */
     }
 
     #name {
-        font-size: 1.8rem; /* Increase name font size */
+        font-size: 1.8rem;
+        /* Increase name font size */
     }
 
     .role {
-        font-size: 1rem; /* Adjust role font size */
+        font-size: 1rem;
+        /* Adjust role font size */
     }
 
     .sidebar-nav {
-        flex-direction: row; /* Keep nav items in a row for better horizontal space */
-        flex-wrap: wrap; /* Allow navigation items to wrap */
-        justify-content: center; /* Center nav items */
-        gap: 8px; /* Reduce gap between nav items */
-        margin-top: 15px; /* Adjust top margin */
+        flex-direction: row;
+        /* Keep nav items in a row for better horizontal space */
+        flex-wrap: wrap;
+        /* Allow navigation items to wrap */
+        justify-content: center;
+        /* Center nav items */
+        gap: 8px;
+        /* Reduce gap between nav items */
+        margin-top: 15px;
+        /* Adjust top margin */
     }
 
     .sidebar-nav a {
-        width: auto; /* Let link width be determined by content */
-        font-size: 0.95rem; /* Slightly smaller font for nav links */
-        padding: 8px 12px; /* Adjust padding */
+        width: auto;
+        /* Let link width be determined by content */
+        font-size: 0.95rem;
+        /* Slightly smaller font for nav links */
+        padding: 8px 12px;
+        /* Adjust padding */
     }
 
     .socials {
-        margin-top: 15px; /* Add margin above socials */
-        margin-bottom: 0; /* Remove bottom margin */
-        gap: 15px; /* Adjust gap between social icons */
+        margin-top: 15px;
+        /* Add margin above socials */
+        margin-bottom: 0;
+        /* Remove bottom margin */
+        gap: 15px;
+        /* Adjust gap between social icons */
     }
 
     .main-panel {
-        margin-left: 0; /* Remove left margin for full width */
-        padding: 20px 15px; /* Adjust padding for main content */
-        gap: 25px; /* Adjust gap between sections */
+        margin-left: 0;
+        /* Remove left margin for full width */
+        padding: 20px 15px;
+        /* Adjust padding for main content */
+        gap: 25px;
+        /* Adjust gap between sections */
     }
 
     .main-panel section {
-        padding: 30px 20px; /* Adjust section padding */
-        font-size: 1rem; /* Adjust section font size */
-    }    .main-panel section h2 {
-        font-size: 1.8rem; /* Adjust section heading size */
+        padding: 30px 20px;
+        /* Adjust section padding */
+        font-size: 1rem;
+        /* Adjust section font size */
+    }
+
+    .main-panel section h2 {
+        font-size: 1.8rem;
+        /* Adjust section heading size */
         margin-bottom: 15px;
         padding: 0 10px;
         word-wrap: break-word;
         overflow-wrap: break-word;
         hyphens: auto;
     }
-    
+
     /* Adjust Tools and Education headings for mobile */
     .tools-section h2,
     .education h2 {
@@ -544,56 +684,74 @@ footer {
     }
 
     .main-panel section ul {
-        margin: 0; /* Remove left margin for lists */
-        padding-left: 20px; /* Add some left padding for list items */
+        margin: 0;
+        /* Remove left margin for lists */
+        padding-left: 20px;
+        /* Add some left padding for list items */
     }
 
     .main-panel section li {
-        font-size: 1rem; /* Adjust list item font size */
+        font-size: 1rem;
+        /* Adjust list item font size */
     }
 
     .certificate-placeholder {
-        height: auto; /* Allow height to adjust based on image */
-        padding: 10px; /* Add some padding around the image */
+        height: auto;
+        /* Allow height to adjust based on image */
+        padding: 10px;
+        /* Add some padding around the image */
     }
 
     .certificate-placeholder img {
-        border-radius: 20px; /* Less rounded corners for certificate */
+        border-radius: 20px;
+        /* Less rounded corners for certificate */
     }
 
     .tools img {
-        width: 40px; /* Smaller tool icons */
+        width: 40px;
+        /* Smaller tool icons */
         height: 40px;
-        gap: 20px; /* Adjust gap between tools */
+        gap: 20px;
+        /* Adjust gap between tools */
     }
 
     .resume-section .download-button {
-        padding: 10px 20px; /* Adjust button padding */
-        font-size: 0.95rem; /* Adjust button font size */
+        padding: 10px 20px;
+        /* Adjust button padding */
+        font-size: 0.95rem;
+        /* Adjust button font size */
     }
 
     .contact-section .contact-info p {
-        font-size: 1rem; /* Adjust contact info font size */
+        font-size: 1rem;
+        /* Adjust contact info font size */
     }
 
     .contact-section .contact-info i {
-        font-size: 1.1rem; /* Adjust contact icon size */
+        font-size: 1.1rem;
+        /* Adjust contact icon size */
     }
 
     footer {
-        padding: 15px 10px; /* Adjust footer padding */
-        font-size: 0.9rem; /* Adjust footer font size */
-        margin-top: 15px; /* Adjust footer top margin */
+        padding: 15px 10px;
+        /* Adjust footer padding */
+        font-size: 0.9rem;
+        /* Adjust footer font size */
+        margin-top: 15px;
+        /* Adjust footer top margin */
     }
 
     #scrollToTopBtn {
-        right: 20px; /* Adjust scroll button position */
+        right: 20px;
+        /* Adjust scroll button position */
         bottom: 20px;
-        padding: 10px; /* Adjust scroll button padding */
+        padding: 10px;
+        /* Adjust scroll button padding */
     }
 
     #scrollToTopBtn img {
-        width: 25px; /* Adjust scroll icon size */
+        width: 25px;
+        /* Adjust scroll icon size */
         height: 25px;
     }
 }
@@ -602,18 +760,23 @@ footer {
     .main-panel {
         width: 100%;
         margin-left: 0;
-        padding: 0 10px; /* Add padding for better spacing */
+        padding: 0 10px;
+        /* Add padding for better spacing */
     }
 
     .main-panel section {
         width: 100%;
-        padding: 20px 8px; /* Ensure consistent padding */
-        box-sizing: border-box; /* Prevent overflow */
+        padding: 20px 8px;
+        /* Ensure consistent padding */
+        box-sizing: border-box;
+        /* Prevent overflow */
     }
 
     .sidebar {
-        width: 100%; /* Adjust sidebar width for mobile */
-        position: relative; /* Prevent overlap */
+        width: 100%;
+        /* Adjust sidebar width for mobile */
+        position: relative;
+        /* Prevent overlap */
     }
 }
 
@@ -622,20 +785,24 @@ footer {
         opacity: 0;
         transform: translateY(60px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
+
 .fade-in {
     opacity: 0;
     transform: translateY(40px);
     transition: opacity 0.7s, transform 0.7s;
 }
+
 .fade-in.visible {
     opacity: 1;
     transform: translateY(0);
 }
+
 #scrollToTopBtn {
     position: fixed;
     right: 32px;
@@ -654,17 +821,56 @@ footer {
     align-items: center;
     justify-content: center;
 }
+
 #scrollToTopBtn svg {
     display: block;
 }
+
 #scrollToTopBtn:hover {
     background: #60a5fa;
     transform: scale(1.08);
 }
+
 #scrollToTopBtn:hover svg {
     stroke: #23272f;
 }
+
 #scrollToTopBtn.show {
     opacity: 1;
     pointer-events: auto;
+}
+
+.contact-info {
+    background: rgba(60, 60, 70, 0.25);
+    border-radius: 12px;
+    padding: 32px 24px 18px 24px;
+    margin: 0 0 24px 0;
+    /* box-shadow: 0 2px 16px rgba(0,0,0,0.07); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80px;
+}
+
+.contact-info .socials {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    width: 100%;
+    margin: 0;
+}
+
+.contact-info .socials img {
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    transition: transform 0.2s;
+    background: none;
+    object-fit: contain;
+    box-shadow: none; /* Remove any shadow */
+}
+
+.contact-info .socials img:hover {
+    transform: scale(1.12) rotate(-6deg);
+    box-shadow: none; /* Ensure no shadow on hover */
 }

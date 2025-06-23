@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,44 +8,62 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/4b8b1b6e2e.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
     <div class="layout">
         <aside class="sidebar">
+            <div class="sidebar-arrow"><img src="sidebar-arrow.svg" alt="sidebar-arrow"></div>
             <div class="sidebar-content">
                 <img src="me.jpg" alt="Profile" class="profile-pic">
-                <h1 id="name">Ayush Negi</h1>
+                <div id="name">
+                    <span>A</span>
+                    <span>y</span>
+                    <span>u</span>
+                    <span>s</span>
+                    <span>h</span>
+                    <span>&nbsp;</span>
+                    <span>N</span>
+                    <span>e</span>
+                    <span>g</span>
+                    <span>i</span>
+                </div>
                 <p class="role">Frontend Developer</p>
                 <nav class="sidebar-nav">
-                    <a href="#about" class="active">About</a>
+                    <a href="#about" class="active">About Me</a>
                     <a href="#experience">Experience</a>
                     <a href="#achievements">Achievements</a>
                     <a href="#tools">Tools</a>
                     <a href="#education">Education</a>
-                    <a href="#resume">Resume</a> <a href="#contact">Contact</a> </nav>
+                    <a href="#resume">Resume</a> <a href="#contact">Contact</a>
+                </nav>
                 <div class="spacer"></div>
-                <div class="socials">
-                    <a href="#" title="LinkedIn" onclick="gotoLinkedin()"><img src="https://static.vecteezy.com/system/resources/previews/018/930/480/non_2x/linkedin-logo-linkedin-icon-transparent-free-png.png" alt="linkedin"></a>
-                    <a href="#" title="GitHub" onclick="gotoGithub()"><img src="github.png" alt="github"></a>
-                    <a href="#" title="LeetCode" onclick="gotoLeetcode()"><img src="https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png" alt="LeetCode"></a>
-                    <a href="#" title="GeeksforGeeks" onclick="gotoGFG()"><img src="https://upload.wikimedia.org/wikipedia/commons/4/43/GeeksforGeeks.svg" alt="GFG"></a>
-                    <a href="#" title="Email" onclick="gotoEmail()"><img src="https://images.icon-icons.com/2642/PNG/512/google_mail_gmail_logo_icon_159346.png" alt="mail"></a>
-                </div>
             </div>
         </aside>
+
+
+
 
         <main class="main-panel">
             <section class="about" id="about">
                 <h2 style="font-size: 50px; font-family: Clarendon Blk BT;">About Me</h2>
-                <p>As a creative and detail-oriented frontend developer, I am currently interning as a WordPress developer at Nautiyal Tech Pvt. Ltd. I love crafting visually engaging and user-friendly web experiences, and I am always eager to expand my knowledge and skills in the ever-evolving world of web development.</p>
+                <p id="about-para">Hi there! I’m a passionate frontend developer currently interning at Nautiyal Tech
+                    Pvt. Ltd. where I work with WordPress to build sleek, responsive, and user-friendly websites. I
+                    enjoy turning complex ideas into clean, functional, and visually compelling web experiences. <br />
+
+                    I’m always exploring new tools, techniques, and trends in the world of web development to keep my
+                    skills sharp and stay ahead of the curve.
+                </p>
             </section>
 
             <section class="experience" id="experience">
                 <h2 style="font-size: 50px; font-family: Clarendon Blk BT;">Experience</h2>
                 <span style="color: grey;">May 2025 - Present</span>
                 <ul>
-                    <li>Assisted in building and customizing responsive WordPress websites using Elementor and custom themes.</li>
+                    <li>Assisted in building and customizing responsive WordPress websites using Elementor and custom
+                        themes.</li>
                     <li>Fixed UI issues and optimized web pages for speed and performance.</li>
-                    <li>Collaborated with senior developers to integrate third-party plugins and troubleshoot site functionality.</li>
+                    <li>Collaborated with senior developers to integrate third-party plugins and troubleshoot site
+                        functionality.</li>
                     <li>Learned basics of SEO, plugin compatibility, and client revisions.</li>
                     <li>Worked on real-time client projects and maintained WordPress dashboards.</li>
                 </ul>
@@ -52,13 +71,24 @@
 
             <section class="achievements" id="achievements">
                 <h2 style="font-size: 50px; font-family: Clarendon Blk BT;">Achievements</h2>
-                <h4>Hackwie 2025 – Hackathon Participant</h4>
+
+                <h4 class="hackathon-title">
+                    <span>HackWie3.0&nbsp;</span>
+                    <span>2025&nbsp;</span>
+                    <span>–&nbsp;</span>
+                    <span>Hackathon&nbsp;</span>
+                    <span>Participant</span>
+                </h4>
+
                 <p style="color: grey;">January 2025 | Delhi, India</p>
+
                 <li>Participated in Hackwie 3.0, a national-level hackathon organized in Delhi.</li>
                 <li>Collaborated in a team of 4 to develop a web-based solution within 24 hours.</li>
                 <li>Gained experience in rapid prototyping, problem-solving under pressure, and teamwork.</li>
                 <li>Tools Used: HTML, CSS, JavaScript, and GitHub for version control.</li>
-                <div class="certificate-placeholder"><img src="hack.jpg" alt="Hackathon Certificate">
+
+                <div class="certificate-placeholder" id="certificateHover">
+                    <img src="hack.jpg" alt="Hackathon Certificate">
                 </div>
             </section>
 
@@ -67,9 +97,17 @@
                 <div class="tools">
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML">
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS">
-                    <img src="https://static.vecteezy.com/system/resources/previews/027/127/560/non_2x/javascript-logo-javascript-icon-transparent-free-png.png" alt="JS" style="height: 70px; width: 70px;">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind">
+                    <img src="https://static.vecteezy.com/system/resources/previews/027/127/560/non_2x/javascript-logo-javascript-icon-transparent-free-png.png"
+                        alt="JS" style="height: 70px; width: 70px;">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg"
+                        alt="Tailwind">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg" />
+                    <img
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" />
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" />
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-plain.svg" alt="Git">
                     <img src="github.png" alt="github">
+                    <img src="gsap.webp" alt="GSAP">
                     <img src="https://cdn-icons-png.flaticon.com/512/174/174881.png" alt="WordPress">
                     <img src="elementor.png" alt="Elementor">
                 </div>
@@ -77,10 +115,13 @@
 
             <section class="education" id="education">
                 <h2 style="font-size: 50px; font-family: Clarendon Blk BT;">Education</h2>
-                <ul style="list-style-type: none; font-weight: 600; color: rgb(205, 152, 255);">
-                    <li style="letter-spacing: 1.5px;">Diploma in Computer Science, Delhi Skill and Entrepreneurship University <br> <span style="color: rgb(116, 202, 149);">(2023-2026)</span></li>
+                <ul style="list-style-type: none;">
+                    <li>Diploma in Computer Science, Delhi Skill and EntrepreneurshipUniversity <br>
+                        <span style="color: #838383">(2023-2026)</span></li>
                     <br>
-                    <li style="letter-spacing: 1.5px;">Commerce with Maths, Central Board of Secondary Education <span style="color: rgb(244, 255, 196)">84.8%</span> <br> <span style="color: rgb(116, 202, 149);">(2021-2023)</span></li>
+                    <li>Commerce with Maths, Central Board of Secondary Education <span>84.8%</span> <br>
+                        <span style="color: #838383">(2021-2023)</span>
+                    </li>
                 </ul>
             </section>
 
@@ -96,22 +137,46 @@
 
             <section id="contact" class="contact-section">
                 <h2 style="font-size: 50px; font-family: Clarendon Blk BT;">Contact Me</h2>
-                <p>I'd love to connect! Feel free to reach out via:</p>
+                <p>I am available on the following social media platforms:</p>
                 <div class="contact-info">
-                    <p><i class="fas fa-envelope"></i> Email: <a href="mailto:ayushnegi912@gmail.com">ayushnegi912@gmail.com</a></p>
-                    <p><i class="fas fa-phone"></i> Phone: +91 12345 67890</p>
-                    <p><i class="fas fa-map-marker-alt"></i> Location: Delhi, India</p>
+                    <!-- Only socials inside the box now -->
+                    <div class="socials">
+                        <a href="#" title="LinkedIn" onclick="gotoLinkedin()"><img
+                                src="https://static.vecteezy.com/system/resources/previews/018/930/480/non_2x/linkedin-logo-linkedin-icon-transparent-free-png.png"
+                                alt="linkedin"></a>
+                        <a href="#" title="GitHub" onclick="gotoGithub()"><img src="github.png" alt="github"></a>
+                        <a href="#" title="LeetCode" onclick="gotoLeetcode()"><img
+                                src="https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png"
+                                alt="LeetCode"></a>
+                        <a href="#" title="GeeksforGeeks" onclick="gotoGFG()"><img
+                                src="https://upload.wikimedia.org/wikipedia/commons/4/43/GeeksforGeeks.svg"
+                                alt="GFG"></a>
+                        <a href="#" title="Email" onclick="gotoEmail()"><img
+                                src="https://images.icon-icons.com/2642/PNG/512/google_mail_gmail_logo_icon_159346.png"
+                                alt="mail"></a>
+                    </div>
                 </div>
             </section>
-
-            <footer>
-                &copy; 2025 Ayush Negi. All rights reserved.
-            </footer>
         </main>
     </div>
+    </div>
+
+
+    </div>
+
     <button id="scrollToTopBtn" title="Scroll to top">
         <img src="scroll.png" alt="scroll to top icon" height="30" width="30">
     </button>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"
+        integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"
+        integrity="sha512-P2IDYZfqSwjcSjX0BKeNhwRUH8zRPGlgcWl5n6gBLzdi4Y5/0O4zaXrtO4K9TZK6Hn1BenYpKowuCavNandERg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="script.js"></script>
 </body>
+
 </html>
