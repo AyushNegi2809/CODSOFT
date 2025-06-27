@@ -10,8 +10,16 @@
 </head>
 
 <body>
+    <!-- Hamburger menu for mobile -->
+    <button id="hamburger" aria-label="Open navigation" aria-controls="sidebar" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    <!-- Overlay for mobile sidebar -->
+    <div id="sidebar-overlay"></div>
     <div class="layout">
-        <aside class="sidebar">
+        <aside class="sidebar" id="sidebar">
             <div class="sidebar-arrow"><img src="sidebar-arrow.svg" alt="sidebar-arrow"></div>
             <div class="sidebar-content">
                 <img src="me.jpg" alt="Profile" class="profile-pic">
@@ -73,11 +81,7 @@
                 <h2 style="font-size: 50px; font-family: Clarendon Blk BT;">Achievements</h2>
 
                 <h4 class="hackathon-title">
-                    <span>HackWie3.0&nbsp;</span>
-                    <span>2025&nbsp;</span>
-                    <span>–&nbsp;</span>
-                    <span>Hackathon&nbsp;</span>
-                    <span>Participant</span>
+                    HackWie3.0 2025 Hackathon Participant
                 </h4>
 
                 <p style="color: grey;">January 2025 | Delhi, India</p>
@@ -116,7 +120,7 @@
             <section class="education" id="education">
                 <h2 style="font-size: 50px; font-family: Clarendon Blk BT;">Education</h2>
                 <ul style="list-style-type: none;">
-                    <li>Diploma in Computer Science, Delhi Skill and EntrepreneurshipUniversity <br>
+                    <li>Diploma in Computer Science, Delhi Skill and Entrepreneurship University <br>
                         <span style="color: #838383">(2023-2026)</span></li>
                     <br>
                     <li>Commerce with Maths, Central Board of Secondary Education <span>84.8%</span> <br>
@@ -177,6 +181,7 @@
         integrity="sha512-P2IDYZfqSwjcSjX0BKeNhwRUH8zRPGlgcWl5n6gBLzdi4Y5/0O4zaXrtO4K9TZK6Hn1BenYpKowuCavNandERg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="script.js"></script>
+    
 </body>
 
 </html>

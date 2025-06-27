@@ -19,11 +19,58 @@ function gotoEmail() {
     window.location.href = 'mailto:ayushnegi912@gmail.com';
 }
 
+
+// Hamburger menu toggle logic
+const hamburger = document.getElementById('hamburger');
+const sidebar = document.getElementById('sidebar');
+const overlay = document.getElementById('sidebar-overlay');
+hamburger.addEventListener('click', function () {
+    sidebar.classList.toggle('open');
+    overlay.classList.toggle('show');
+    hamburger.setAttribute('aria-expanded', sidebar.classList.contains('open'));
+});
+overlay.addEventListener('click', function () {
+    sidebar.classList.remove('open');
+    overlay.classList.remove('show');
+    hamburger.setAttribute('aria-expanded', 'false');
+});
+
+
 // Correct implementation: Hide the arrow when the sidebar is fully scrolled
 
 document.addEventListener('DOMContentLoaded', function () {
     const sidebar = document.querySelector('.sidebar');
     const sidebarArrow = document.querySelector('.sidebar-arrow');
+
+    // Add close button for mobile sidebar
+    function addSidebarCloseBtn() {
+        if (window.innerWidth <= 900 && sidebar && !document.getElementById('sidebar-close-btn')) {
+            const closeBtn = document.createElement('button');
+            closeBtn.id = 'sidebar-close-btn';
+            closeBtn.setAttribute('aria-label', 'Close sidebar');
+            closeBtn.innerHTML = '&times;';
+            closeBtn.style.position = 'absolute';
+            closeBtn.style.top = '18px';
+            closeBtn.style.right = '18px';
+            closeBtn.style.fontSize = '2rem';
+            closeBtn.style.background = 'none';
+            closeBtn.style.border = 'none';
+            closeBtn.style.color = '#fff';
+            closeBtn.style.zIndex = '2000';
+            closeBtn.style.cursor = 'pointer';
+            closeBtn.style.display = 'block';
+            closeBtn.addEventListener('click', function () {
+                sidebar.classList.remove('open');
+                document.getElementById('sidebar-overlay').classList.remove('show');
+                document.getElementById('hamburger').setAttribute('aria-expanded', 'false');
+            });
+            sidebar.appendChild(closeBtn);
+        } else if (window.innerWidth > 900 && document.getElementById('sidebar-close-btn')) {
+            document.getElementById('sidebar-close-btn').remove();
+        }
+    }
+    addSidebarCloseBtn();
+    window.addEventListener('resize', addSidebarCloseBtn);
 
     if (sidebar && sidebarArrow) {
         sidebar.addEventListener('scroll', function () {
@@ -38,6 +85,18 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     }
+
+    // Close sidebar on nav link click in mobile view
+    const sidebarNavLinks = document.querySelectorAll('.sidebar-nav a');
+    sidebarNavLinks.forEach(function (link) {
+        link.addEventListener('click', function () {
+            if (window.innerWidth <= 900) {
+                sidebar.classList.remove('open');
+                document.getElementById('sidebar-overlay').classList.remove('show');
+                document.getElementById('hamburger').setAttribute('aria-expanded', 'false');
+            }
+        });
+    });
 });
 
 const card = document.getElementById('certificateHover');
@@ -60,133 +119,3 @@ card.addEventListener('mouseleave', () => {
     card.style.transform = 'rotateX(0deg) rotateY(0deg)';
 });
 
-
-//~ GSAP Animations Start 
-
-const sidebarTL = gsap.timeline(); //? Sidebar Timeline
-
-sidebarTL.from(".sidebar", {
-    x: -350,
-    duration: 1.5,
-    ease: "power2.inOut",
-});
-
-sidebarTL.from(".profile-pic", {
-    y: -50,
-    opacity: 0,
-    duration: 0.9,
-    ease: "power4.inOut",
-}, "-=0.7");
-
-sidebarTL.from("#name span", {
-    y: -20,
-    scale: 0,
-    duration: 0.2,
-    ease: "power4.inOut",
-    stagger: 0.1,
-}, "-=0.2");
-
-sidebarTL.from(".role", {
-    x: -30,
-    opacity: 0,
-    duration: 0.9,
-    ease: "bounce.out",
-}, "-=0.1");
-
-// Updated scrollTrigger animation to use the sidebar's scroll context
-
-gsap.from(".sidebar-nav a", {
-    x: -150,
-    opacity: 0,
-    scale: 0.5,
-    stagger: 0.1,
-    scrollTrigger: {
-        trigger: ".sidebar-nav",
-        start: "top 75%", // Ensure the animation starts when the element is fully visible
-        end: "+=350", // Adjusted end point for smoother animation
-        scrub: true,
-        scroller: ".sidebar", // Use the sidebar's scroll context
-    }
-});
-
-//? Main Content Animation
-
-gsap.from(".about", {
-    duration: 1.4,
-    opacity: 0,
-    x: "150%",
-});
-
-gsap.from(".experience", {
-    opacity: 0,
-    x: "150%",
-    scrollTrigger: {
-        trigger: ".experience",
-        start: "top 75%",
-        end: "+=400",
-        scrub: 1,
-        markers: false
-    }
-});
-
-gsap.from(".achievements", {
-    opacity: 0,
-    x: "150%",
-    scrollTrigger: {
-        trigger: ".achievements",
-        start: "top 75%",
-        end: "+=400", // 400px scroll distance for the animation
-        scrub: 1,
-        markers: false
-    }
-});
-
-gsap.from(".tools-section", {
-    opacity: 0,
-    x: "150%",
-    scrollTrigger: {
-        trigger: ".tools-section",
-        start: "top 75%",
-        end: "+=400", // 400px scroll distance for the animation
-        scrub: 1,
-        markers: false
-    }
-});
-
-gsap.from(".education", {
-    opacity: 0,
-    x: "150%",
-    scrollTrigger: {
-        trigger: ".education",
-        start: "top 75%",
-        end: "+=400", // 400px scroll distance for the animation
-        scrub: 1,
-        markers: false
-    }
-});
-
-gsap.from(".resume-section", {
-    opacity: 0,
-    x: "150%",
-    scrollTrigger: {
-        trigger: ".resume-section",
-        start: "top 75%",
-        end: "+=400", // 400px scroll distance for the animation
-        scrub: 1,
-        markers: false
-    }
-});
-
-gsap.from(".contact-section", {
-    opacity: 0,
-    x: "150%",
-    scrollTrigger: {
-        trigger: ".contact-section",
-        start: "top 75%",
-        end: "+=400", // 400px scroll distance for the animation
-        scrub: 1,
-        markers: false
-    }
-});
-
-// No changes needed for moving socials
